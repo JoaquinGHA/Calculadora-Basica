@@ -10,7 +10,7 @@ public class Menu {
 		System.out.println("4. Dividir");
 		System.out.println("5. Potencia");
 		System.out.println("6. Raíz");
-		System.out.println("7. Reiniciar");
-		System.out.println("8. Mostrar historial");
+		System.out.println("7. Mostrar historial");
+		System.out.println("8. Reiniciar");
 		System.out.println("0. Salir del sistema");}
 	}
