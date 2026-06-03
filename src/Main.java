@@ -3,12 +3,17 @@ import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) {
+		
 		Scanner sc = new Scanner (System.in);
 		int opcion;
 		
+		System.out.println("Ingresa el primer número: ");
+		double acumulador = sc.nextDouble();
+		
 		do {
 			System.out.println("\n====BIENVENIDO A LA CALCULADORA====");
-			System.out.println("ELIGE UN NÚMERO");
+			System.out.println("Resultado actual : " +acumulador);
+			System.out.println("ELIGE UNA OPERACIÓN");
 			System.out.println("1. Sumar");
 			System.out.println("2. Restar");
 			System.out.println("3. Multiplicar");
@@ -16,45 +21,45 @@ public class Main {
 			System.out.println("0. Salir del sistema");
 			opcion = sc.nextInt();
 			
-			double a, b;
+			double b;
 			
 			
 			
 			switch(opcion) {
 			
 			case 1:
-				System.out.println("\n Primer número: ");
-				a = sc.nextDouble();
-				System.out.println("Segundo número: ");
+				System.out.println("\nNúmero a sumar: ");
 				b = sc.nextDouble();
-				System.out.println("Resultado de la suma entre "+a+ " y "+b+" es " +Operaciones.sumar(a, b) );
+				acumulador = Operaciones.sumar(acumulador, b);
+				System.out.println("Resultado: " +acumulador);
 				break;
 			case 2:
-				System.out.println("\n Primer número: ");
-				a = sc.nextDouble();
-				System.out.println("Segundo número: ");
+				System.out.println("\nNúmero a restar: ");
 				b = sc.nextDouble();
-				System.out.println("Resultado de la resta entre "+a+ " y "+b+" es " +Operaciones.restar(a, b) );
+				acumulador = Operaciones.restar(acumulador, b);
+				System.out.println("Resultado: " +acumulador);
 				break;
 			case 3:
-				System.out.println("\n Primer número: ");
-				a = sc.nextDouble();
-				System.out.println("Segundo número: ");
+				System.out.println("\nNúmero a multiplicar: ");
 				b = sc.nextDouble();
-				System.out.println("Resultado de la multiplicación entre "+a+ " y "+b+" es " +Operaciones.multiplicar(a, b) );
-				break;
+				acumulador = Operaciones.multiplicar(acumulador, b);
+				System.out.println("Resultado: " +acumulador);
 			case 4:
-				System.out.println("\n Primer número: ");
-				a = sc.nextDouble();
-				System.out.println( "Segundo número: ");
+				System.out.println("\nNúmero a dividir: ");
 				b = sc.nextDouble();
-				System.out.println("Resultado de la división entre "+a+ " y "+b+" es " +Operaciones.dividir(a, b) );
+				if(b == 0) {
+					System.out.println("No se puede dividir entre 0. El resultado no cambia.");
+				}else {
+					acumulador = Operaciones.dividir(acumulador, b);
+					System.out.println("Resultado: " +acumulador);
+				}
+				
 				break;
 			case 0:
 				System.out.println("\n Saliendo del Sistema...");
 				break;
 			default:
-				System.out.println("Opción no válida");
+				System.out.println("\nOpción no válida");
 				
 			}
 			 } while (opcion != 0);
