@@ -1,8 +1,11 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
 
 	public static void main(String[] args) {
+		
+		ArrayList<String> historial = new ArrayList<>();
 		
 		Scanner sc = new Scanner (System.in);
 		int opcion;
@@ -18,6 +21,8 @@ public class Main {
 			System.out.println("2. Restar");
 			System.out.println("3. Multiplicar");
 			System.out.println("4. Dividir");
+			System.out.println("5. Reiniciar");
+			System.out.println("6. Mostrar historial");
 			System.out.println("0. Salir del sistema");
 			opcion = sc.nextInt();
 			
@@ -30,30 +35,55 @@ public class Main {
 			case 1:
 				System.out.println("\nNúmero a sumar: ");
 				b = sc.nextDouble();
-				acumulador = Operaciones.sumar(acumulador, b);
+				double resultSuma = Operaciones.sumar(acumulador, b);
+				historial.add(acumulador+" + "+b+" = " +resultSuma);
+				acumulador = resultSuma;
 				System.out.println("Resultado: " +acumulador);
 				break;
 			case 2:
 				System.out.println("\nNúmero a restar: ");
 				b = sc.nextDouble();
-				acumulador = Operaciones.restar(acumulador, b);
+				double resultResta = Operaciones.restar(acumulador, b);
+				historial.add(acumulador+" - "+b+" = " +resultResta);
+				acumulador = resultResta;
 				System.out.println("Resultado: " +acumulador);
 				break;
 			case 3:
 				System.out.println("\nNúmero a multiplicar: ");
 				b = sc.nextDouble();
-				acumulador = Operaciones.multiplicar(acumulador, b);
+				double resultMult = Operaciones.multiplicar(acumulador, b);
+				historial.add(acumulador+" * "+b+" = " +resultMult);
+				acumulador = resultMult;
 				System.out.println("Resultado: " +acumulador);
+				break;
 			case 4:
 				System.out.println("\nNúmero a dividir: ");
 				b = sc.nextDouble();
 				if(b == 0) {
 					System.out.println("No se puede dividir entre 0. El resultado no cambia.");
 				}else {
-					acumulador = Operaciones.dividir(acumulador, b);
+					double resultDiv = Operaciones.dividir(acumulador, b);
+					historial.add(acumulador+ " / "+b+ " = "+resultDiv);
+					acumulador = resultDiv;
 					System.out.println("Resultado: " +acumulador);
 				}
 				
+				break;
+				
+			case 5:
+				System.out.println("\n Ingresa el nuevo número: ");
+				acumulador = sc.nextDouble();
+				historial.add("----Reinicio del Sistema---Ingrese nuevo número --> " +acumulador+ " --");
+				System.out.println("Acumulador reiniciado a: "+acumulador);
+				break;
+			case 6:
+				if(historial.isEmpty()) {
+					System.out.println("\nNo hay historial de operaciones");
+				}else {
+					for(String op : historial) {
+						System.out.println(op);
+					}
+				}
 				break;
 			case 0:
 				System.out.println("\n Saliendo del Sistema...");
