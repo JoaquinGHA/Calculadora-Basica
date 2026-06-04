@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 public class Historial {
 	
@@ -13,7 +15,8 @@ public class Historial {
 	Scanner sc = new Scanner (System.in);
 	
 	public void agregar(String operacion) {
-	    operaciones.add(operacion);
+		String hora =LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+	    operaciones.add(hora+" | " +operacion);
 	}
 	
 	public void mostrar() {
@@ -33,8 +36,9 @@ public class Historial {
 	
 	private String archivo = "historial_" + LocalDate.now() + ".txt";
 	public void guardar() {
+		if(operaciones.isEmpty()) return;
 		try {
-			FileWriter fw = new FileWriter (archivo, true);
+			FileWriter fw = new FileWriter (archivo);
 			for (String op : operaciones) {
 				fw.write(op + "\n");
 			}fw.close();
@@ -106,8 +110,15 @@ public class Historial {
 		File archivo = new File(archivos[eleccion - 1]);
 		if(archivo.delete()) {
 			System.out.println("Historial eliminado correctamente");
+			if(archivos[eleccion - 1].equals(this.archivo)){
+				limpiar();
+			}
 		}else {
 			System.out.println("Error al eliminar el historial");
 		}
+	}
+	
+	public void limpiar(){
+		operaciones.clear();
 	}
 }

@@ -11,7 +11,7 @@ public class Calculadora {
                 System.out.println("\nNúmero a sumar: ");
                 b = Entrada.leerDouble(sc);
                 double resultSuma = Operaciones.sumar(acumulador, b);
-                historial.agregar(String.format("%.2f", acumulador) + " + " + b + " = " + String.format("%.2f", resultSuma));
+                historial.agregar(String.format("%.2f", acumulador) + " + " + String.format("%.2f", b) + " = " + String.format("%.2f", resultSuma));
                 acumulador = resultSuma;
                 System.out.println("Resultado: " + String.format("%.2f", acumulador));
                 break;
@@ -19,7 +19,7 @@ public class Calculadora {
                 System.out.println("\nNúmero a restar: ");
                 b = Entrada.leerDouble(sc);
                 double resultResta = Operaciones.restar(acumulador, b);
-                historial.agregar(String.format("%.2f", acumulador) + " - " + b + " = " + String.format("%.2f", resultResta));
+                historial.agregar(String.format("%.2f", acumulador) + " - " + String.format("%.2f", b) + " = " + String.format("%.2f", resultResta));
                 acumulador = resultResta;
                 System.out.println("Resultado: " + String.format("%.2f", acumulador));
                 break;
@@ -27,7 +27,7 @@ public class Calculadora {
                 System.out.println("\nNúmero a multiplicar: ");
                 b = Entrada.leerDouble(sc);
                 double resultMult = Operaciones.multiplicar(acumulador, b);
-                historial.agregar(String.format("%.2f", acumulador) + " * " + b + " = " + String.format("%.2f", resultMult));
+                historial.agregar(String.format("%.2f", acumulador) + " * " + String.format("%.2f", b) + " = " + String.format("%.2f", resultMult));
                 acumulador = resultMult;
                 System.out.println("Resultado: " + String.format("%.2f", acumulador));
                 break;
@@ -38,7 +38,7 @@ public class Calculadora {
                     System.out.println("No se puede dividir entre 0. El resultado no cambia.");
                 } else {
                     double resultDiv = Operaciones.dividir(acumulador, b);
-                    historial.agregar(String.format("%.2f", acumulador) + " / " + b + " = " + String.format("%.2f", resultDiv));
+                    historial.agregar(String.format("%.2f", acumulador) + " / " + String.format("%.2f", b) + " = " + String.format("%.2f", resultDiv));
                     acumulador = resultDiv;
                     System.out.println("Resultado: " + String.format("%.2f", acumulador));
                 }
@@ -47,7 +47,7 @@ public class Calculadora {
                 System.out.println("\n¿A qué potencia quieres elevar " + String.format("%.2f", acumulador) + "?");
                 b = Entrada.leerDouble(sc);
                 double resultPot = Operaciones.potencia(acumulador, b);
-                historial.agregar(String.format("%.2f", acumulador) + " ^ " + b + " = " + String.format("%.2f", resultPot));
+                historial.agregar(String.format("%.2f", acumulador) + " ^ " + String.format("%.2f", b) + " = " + String.format("%.2f", resultPot));
                 acumulador = resultPot;
                 System.out.println("Resultado: " + String.format("%.2f", acumulador));
                 break;
@@ -58,7 +58,7 @@ public class Calculadora {
                     System.out.println("El índice no puede ser 0.");
                 } else {
                     double resultRaiz = Operaciones.raiz(acumulador, b);
-                    historial.agregar(String.format("%.2f", acumulador) + " raíz " + b + " = " + String.format("%.2f", resultRaiz));
+                    historial.agregar(String.format("%.2f", acumulador) + " raíz " + String.format("%.2f", b) + " = " + String.format("%.2f", resultRaiz));
                     acumulador = resultRaiz;
                     System.out.println("Resultado: " + String.format("%.2f", acumulador));
                 }
