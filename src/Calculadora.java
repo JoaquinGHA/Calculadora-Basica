@@ -1,7 +1,19 @@
+/**
+ * Clase que gestiona la lógica de cada operación de la calculadora.
+ * Recibe la opción del usuario y ejecuta la operación correspondiente.
+ */
 import java.util.Scanner;
 
 public class Calculadora {
-
+	
+	/**
+     * Ejecuta la operación elegida por el usuario.
+     * @param opcion número de la operación elegida
+     * @param acumulador valor actual de la calculadora
+     * @param sc Scanner para leer los datos del usuario
+     * @param historial objeto para guardar las operaciones
+     * @return nuevo valor del acumulador tras la operación
+     */
     public double ejecutar(int opcion, double acumulador, Scanner sc, Historial historial) {
 
         double b;
@@ -78,7 +90,7 @@ public class Calculadora {
             	break;
             
             case 10:
-            	historial.eliminarHistorial();
+            	historial.eliminarHistorial(sc);
             	break;
             
             case 0:

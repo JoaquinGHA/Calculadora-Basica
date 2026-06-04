@@ -1,3 +1,8 @@
+/**
+ * Clase que gestiona el historial de operaciones.
+ * Guarda y carga las operaciones en un archivo de texto por día.
+ */
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -10,15 +15,28 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 public class Historial {
+	 
 	
+	/** Archivo donde se guardan las operaciones del día actual */
+	private String archivo = "historial_" + LocalDate.now() + ".txt";
+	
+	/** Lista de operaciones realizadas en la sesión actual */
 	private ArrayList<String> operaciones = new ArrayList<>();
 	Scanner sc = new Scanner (System.in);
 	
+	/**
+     * Añade una operación al historial con la hora actual.
+     * @param operacion texto de la operación realizada
+     */
 	public void agregar(String operacion) {
 		String hora =LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss"));
 	    operaciones.add(hora+" | " +operacion);
 	}
 	
+	
+	/**
+     * Muestra por pantalla todas las operaciones del historial.
+     */
 	public void mostrar() {
 		if(operaciones.isEmpty()) {
 			System.out.println("\nNo hay historial de operaciones");
@@ -34,7 +52,11 @@ public class Historial {
 	}
 	
 	
-	private String archivo = "historial_" + LocalDate.now() + ".txt";
+	
+	
+	 /**
+     * Guarda el historial en el archivo de texto del día.
+     */
 	public void guardar() {
 		if(operaciones.isEmpty()) return;
 		try {
@@ -48,6 +70,10 @@ public class Historial {
 		}
 	}
 	
+	
+	/**
+     * Carga el historial desde el archivo de texto del día.
+     */
 	public void cargar() {
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(archivo));
@@ -63,6 +89,10 @@ public class Historial {
 	}
 	
 	
+	
+	/**
+     * Lista todos los archivos de historial disponibles.
+     */
 	public void listarHistoriales() {
 	    File carpeta = new File(".");
 	    String[] todosArchivos = carpeta.list();
@@ -84,8 +114,11 @@ public class Historial {
 	    }
 	}
 	
-	
-	public void eliminarHistorial() {
+	/**
+     * Elimina un archivo de historial elegido por el usuario.
+     * @param sc Scanner para leer la elección del usuario
+     */
+	public void eliminarHistorial(Scanner sc) {
 		File carpeta = new File("C:\\Users\\joaqu\\eclipse-workspace\\Calculadora Básica");
 		String[] archivos = carpeta.list((dir, nombre) -> nombre.startsWith("historial_") && nombre.endsWith(".txt"));
 		if(archivos == null || archivos.length == 0) {
@@ -118,6 +151,10 @@ public class Historial {
 		}
 	}
 	
+	
+	/**
+     * Limpia las operaciones de la memoria.
+     */
 	public void limpiar(){
 		operaciones.clear();
 	}

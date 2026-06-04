@@ -1,5 +1,12 @@
-
+/**
+ * Clase que gestiona la visualización del menú de la calculadora.
+ */
 public class Menu {
+	
+	/**
+     * Muestra el menú de opciones con el resultado actual.
+     * @param acumulador valor actual de la calculadora
+     */
 	public void mostrar(double acumulador) {
 		System.out.println("\n====BIENVENIDO A LA CALCULADORA====");
 		System.out.println("Resultado actual : " +String.format("%.2f", acumulador));
