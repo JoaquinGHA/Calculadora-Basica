@@ -72,6 +72,14 @@ public class Calculadora {
                 historial.agregar("----Reinicio----  nuevo número --> " + String.format("%.2f", acumulador));
                 System.out.println("Acumulador reiniciado a: " + acumulador);
                 break;
+               
+            case 9:
+            	historial.listarHistoriales();
+            	break;
+            
+            case 10:
+            	historial.eliminarHistorial();
+            	break;
             
             case 0:
                 System.out.println("\nSaliendo del sistema...");

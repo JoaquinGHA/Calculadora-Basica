@@ -12,5 +12,9 @@ public class Menu {
 		System.out.println("6. Raíz");
 		System.out.println("7. Mostrar historial");
 		System.out.println("8. Reiniciar");
-		System.out.println("0. Salir del sistema");}
+		System.out.println("9. Listar Historial");
+		System.out.println("10. Eliminar Historial");
+		System.out.println("0. Salir del sistema");
+
+		}
 	}
